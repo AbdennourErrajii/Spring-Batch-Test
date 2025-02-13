@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Projecteur",
+    "type": "Audio-Visuel",
+    "price": 1000.00,
+    "status": "Disponible"
+  },
+  {
+    "id": 2,
+    "name": "Table",
+    "type": "Mobilier",
+    "price": 1000.00,
+    "status": "En maintenance"
+  },
+  {
+    "id": 3,
+    "name": "Chaise",
+    "type": "Mobilier",
+    "price": 1000.00,
+    "status": "Disponible"
+  },
+  {
+    "id": 4,
+    "name": "Ecran LED",
+    "type": "Audio-Visuel",
+    "price": 1000.00,
+    "status": "Disponible"
+  }
+]

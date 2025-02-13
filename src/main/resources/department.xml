@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<departments>
+    <department>
+        <id>1</id>
+        <name>IT</name>
+        <numberEmploye>10</numberEmploye>
+    </department>
+    <department>
+        <id>2</id>
+        <name>HR</name>
+        <numberEmploye>5</numberEmploye>
+    </department>
+    <department>
+        <id>3</id>
+        <name>HR</name>
+        <numberEmploye>5</numberEmploye>
+    </department>
+    <department>
+        <id>4</id>
+        <name>HR</name>
+        <numberEmploye>5</numberEmploye>
+    </department>
+    <department>
+        <id>5</id>
+        <name>HR</name>
+        <numberEmploye>5</numberEmploye>
+    </department>
+</departments>
+
