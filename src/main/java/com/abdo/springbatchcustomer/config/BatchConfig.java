@@ -119,7 +119,6 @@ public class BatchConfig {
                 .writer(newTableWriter()) // Générer la page HTML
                 .build();
     }
-
     @Bean
     public   NewTableWriter newTableWriter() {
         return new NewTableWriter();
@@ -148,22 +147,6 @@ public class BatchConfig {
                 .end()
                 .build();
     }
-
-    //@Bean
-    public Job runJob(JobRepository jobRepository, Step step1, Step step2, Step step3) throws Exception {
-        return new JobBuilder("ImportEmployeJob", jobRepository)
-                .start(
-                        new FlowBuilder<Flow>("parallelSteps")
-                                .split(new SimpleAsyncTaskExecutor())  // Exécuter en parallèle
-                                .add(new FlowBuilder<Flow>("flow1").from(step1).end(),
-                                        new FlowBuilder<Flow>("flow3").from(step3).end())
-                                .build()
-                )
-                .next(step2)  // Exécuter Step2 après
-                .end()
-                .build();
-    }
-
 
     private LineMapper<Employe> lineMapper() {
         DefaultLineMapper<Employe> lineMapper = new DefaultLineMapper<>();

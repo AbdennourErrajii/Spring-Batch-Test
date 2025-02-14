@@ -1,6 +1,7 @@
 package com.abdo.springbatchcustomer.entity;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Revenue {
     @Id
-    private int year;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private double year;
     private String quarter;
-    private double amount;
+    private String amount;
 }
