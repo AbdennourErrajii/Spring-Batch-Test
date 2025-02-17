@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobExecutionListener;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -90,7 +92,6 @@ public class BatchConfigForDbToPdf {
                 }
                 contentStream.endText();
             }
-
             try {
                 document.save(pdfFile);
                 log.info("PDF generated successfully at: {}", pdfFile.getAbsolutePath());
@@ -113,6 +114,21 @@ public class BatchConfigForDbToPdf {
     public Job runJob5() {
         return new JobBuilder("runJob5", jobRepository)
                 .start(generatePdfStep())
+                .listener(new JobExecutionListener() {
+                    @Override
+                    public void beforeJob(JobExecution jobExecution) {
+                        jobExecution.getExecutionContext().put("startTime", System.currentTimeMillis());
+                    }
+
+                    @Override
+                    public void afterJob(JobExecution jobExecution) {
+                        long startTime = jobExecution.getExecutionContext().getLong("startTime");
+                        long endTime = System.currentTimeMillis();
+                        long duration = endTime - startTime;
+                        System.out.println("Job execution time: " + duration + " ms");
+                    }
+                })
                 .build();
+
     }
 }

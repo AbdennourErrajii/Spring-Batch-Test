@@ -29,7 +29,7 @@ public class BatchConfigForJSON {
     public JsonItemReader<Equipement> equipementReader() {
         return new JsonItemReaderBuilder<Equipement>()
                 .name("equipementReader")
-                .resource(new ClassPathResource("equipement.json"))
+                .resource(new ClassPathResource("inputs/equipement.json"))
                 .jsonObjectReader(new JacksonJsonObjectReader<>(Equipement.class))
                 .build();
     }

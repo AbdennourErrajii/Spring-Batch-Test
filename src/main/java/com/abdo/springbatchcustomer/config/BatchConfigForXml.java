@@ -33,7 +33,7 @@ public class BatchConfigForXml {
         unmarshaller.setClassesToBeBound(Department.class);
         return new StaxEventItemReaderBuilder<Department>()
                 .name("departmentReader")
-                .resource(new ClassPathResource("department.xml"))
+                .resource(new ClassPathResource("inputs/department.xml"))
                 .addFragmentRootElements("department")
                 .unmarshaller(unmarshaller)
                 .build();
