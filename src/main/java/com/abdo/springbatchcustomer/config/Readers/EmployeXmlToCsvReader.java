@@ -1,12 +1,7 @@
 package com.abdo.springbatchcustomer.config.Readers;
 
 import com.abdo.springbatchcustomer.entity.Employe;
-import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.NonTransientResourceException;
-import org.springframework.batch.item.ParseException;
-import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.batch.item.xml.StaxEventItemReader;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 

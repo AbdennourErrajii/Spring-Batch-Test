@@ -14,7 +14,6 @@ public interface AppInterface {
     public void DbToXml();
     public void DbToJson();
     public void DbToExcel();
-    public void DbToPdf();
 
 
 

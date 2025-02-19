@@ -20,7 +20,7 @@ public class AppController implements AppInterface{
     private final Job runJob2;
     private final Job runJob3;
     private final Job runJob4;
-    private final Job runJob5;
+
 
     @Override
     @PostMapping("/employe")
@@ -86,9 +86,7 @@ public class AppController implements AppInterface{
     public void PdfToDb() {
 
     }
-
     @Override
-
     public void DbToCsv() {
 
 
@@ -109,20 +107,4 @@ public class AppController implements AppInterface{
 
     }
 
-    @Override
-    @PostMapping("/pdf")
-    public void DbToPdf() {
-        try {
-            JobParameters jobParameters = new JobParametersBuilder()
-                    .addLong("startAt", System.currentTimeMillis())
-                    .toJobParameters();
-            this.jobLauncher.run(runJob5, jobParameters);
-        } catch (JobInstanceAlreadyCompleteException | JobExecutionAlreadyRunningException |
-                 JobParametersInvalidException | JobRestartException e) {
-            e.printStackTrace();
-
-        }
-
-
-    }
 }

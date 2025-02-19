@@ -5,7 +5,6 @@ import jakarta.persistence.Id;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.*;
-
 @Entity
 @Getter
 @Setter
@@ -16,7 +15,6 @@ import lombok.*;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @XmlRootElement(name = "employe")
 public class Employe {
-
     @Id
     @EqualsAndHashCode.Include
     private Integer id;
