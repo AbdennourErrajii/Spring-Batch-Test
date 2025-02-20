@@ -15,7 +15,6 @@ public class PartitionedCsvReader extends FlatFileItemReader<Employe> implements
     @Override
     public void open(ExecutionContext executionContext) throws ItemStreamException {
         super.open(executionContext);
-
         if (!initialized && executionContext != null) {
             this.startLine = executionContext.containsKey("startLine") ?
                     executionContext.getInt("startLine") : 1;

@@ -1,52 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <departments>
     <department>
-        <id>1</id>
         <name>IT</name>
         <numberEmploye>10</numberEmploye>
     </department>
     <department>
-        <id>2</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>3</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>4</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>5</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>6</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>7</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>8</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>9</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>
     <department>
-        <id>10</id>
         <name>HR</name>
         <numberEmploye>5</numberEmploye>
     </department>

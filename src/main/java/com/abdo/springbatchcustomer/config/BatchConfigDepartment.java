@@ -52,11 +52,10 @@ public class BatchConfigDepartment {
    public JdbcBatchItemWriter<Department> departmentXmlToDbWriter() {
        return new JdbcBatchItemWriterBuilder<Department>()
                .dataSource(dataSource)
-               .sql("INSERT INTO department (id, name, number_employe) VALUES (?, ?, ?)")
+               .sql("INSERT INTO department (name, number_employe) VALUES (?, ?)")
                .itemPreparedStatementSetter((department, ps) -> {
-                   ps.setLong(1, department.getId());
-                   ps.setString(2, department.getName());
-                   ps.setDouble(3, department.getNumberEmploye()); // Vérifie le type !
+                   ps.setString(1, department.getName());
+                   ps.setDouble(2, department.getNumberEmploye()); // Vérifie le type !
                })
                .build();
    }
@@ -70,7 +69,7 @@ public class BatchConfigDepartment {
                 //.taskExecutor(taskExecutor())
                 .build();
     }
-    //-----------------Step 1: Db To Text-----------------
+    //-----------------Step 2: Db To Text-----------------
     @Bean
     public ItemReader<Department> departmentDbToTextReader() {
         JpaPagingItemReader<Department> reader = new JpaPagingItemReader<>();

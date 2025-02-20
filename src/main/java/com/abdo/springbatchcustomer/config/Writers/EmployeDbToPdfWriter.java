@@ -1,5 +1,4 @@
 package com.abdo.springbatchcustomer.config.Writers;
-
 import com.abdo.springbatchcustomer.entity.Employe;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -52,7 +51,6 @@ public class EmployeDbToPdfWriter implements ItemWriter<Employe> {
                 contentStream.newLine();
                 contentStream.newLine();
             }
-
             for (Employe employe : chunk.getItems()) {
                 contentStream.showText("- ID : " + employe.getId());
                 contentStream.newLine();
@@ -68,7 +66,6 @@ public class EmployeDbToPdfWriter implements ItemWriter<Employe> {
             }
             contentStream.endText();
         }
-
         document.save(pdfFile);
         document.close();
         log.info("PDF mis à jour avec succès : {}", pdfFile.getAbsolutePath());

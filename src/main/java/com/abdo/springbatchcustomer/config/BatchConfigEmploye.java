@@ -271,9 +271,8 @@ public class BatchConfigEmploye {
     }
 
 
-    //-----------------------------------------------
 
-
+    //-------------------L'excution du Job1 avec Flows----------------------------
     @Bean
     public Job  runJob1() throws Exception {
         Flow flow1 = new FlowBuilder<SimpleFlow>("flow1")
@@ -293,8 +292,10 @@ public class BatchConfigEmploye {
                 .build();
         return new JobBuilder("runJob1", jobRepository)
                 .start(flow1)
-                .next(flow3)
-                .split(new SimpleAsyncTaskExecutor()).add(flow2)
+                .next(new FlowBuilder<SimpleFlow>("splitFlow")
+                        .split(new SimpleAsyncTaskExecutor())
+                        .add(flow2,flow3)
+                        .build())
                 .end()
                 .build();
     }

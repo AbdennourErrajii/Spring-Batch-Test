@@ -1,6 +1,8 @@
 package com.abdo.springbatchcustomer.entity;
 ;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
@@ -14,7 +16,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 @XmlRootElement(name = "department")
 public class Department {
         @Id
-        //@GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Integer id;
         private String name;
         private double numberEmploye;
