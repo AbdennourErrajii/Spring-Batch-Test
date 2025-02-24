@@ -20,7 +20,6 @@ public class PartitionedCsvReader extends FlatFileItemReader<Employe> implements
                     executionContext.getInt("startLine") : 1;
             this.endLine = executionContext.containsKey("endLine") ?
                     executionContext.getInt("endLine") : Integer.MAX_VALUE;
-            System.out.println("Partition initialized with range: " + startLine + " to " + endLine);
             this.initialized = true;
         }
     }
@@ -39,8 +38,6 @@ public class PartitionedCsvReader extends FlatFileItemReader<Employe> implements
         Employe employe = super.read();
         if (employe != null) {
             currentLine++;
-            System.out.println(String.format("Partition [%d-%d] reading: %s at line: %d",
-                    startLine, endLine, employe.getName(), currentLine));
         }
 
         return employe;

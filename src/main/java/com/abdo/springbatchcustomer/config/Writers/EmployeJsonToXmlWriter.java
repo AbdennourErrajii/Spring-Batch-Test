@@ -16,7 +16,5 @@ public class EmployeJsonToXmlWriter extends StaxEventItemWriter<Employe> {
         setOverwriteOutput(true);
         setRootTagName("employes"); // Racine du fichier XML
         setSaveState(true);
-
-
     }
 }

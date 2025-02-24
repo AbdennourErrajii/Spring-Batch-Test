@@ -1,5 +1,6 @@
 package com.abdo.springbatchcustomer.config;
 
+import com.abdo.springbatchcustomer.config.listeners.EquipementStepListener;
 import com.abdo.springbatchcustomer.entity.Equipement;
 import com.abdo.springbatchcustomer.repo.EquipementRepo;
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class BatchConfigForJSON {
     private final JobRepository jobRepository;
     private final PlatformTransactionManager transactionManager;
     private final EquipementRepo equipementRepo;
+    private final EquipementStepListener equipementStepListener;
 
     @Bean
     public JsonItemReader<Equipement> equipementReader() {
@@ -36,8 +38,12 @@ public class BatchConfigForJSON {
 
     @Bean
     public ItemWriter<Equipement> equipementWriter() {
-        return equipements -> equipementRepo.saveAll(equipements);
+        return equipements -> {
+            System.out.println("Commit avec " + equipements.size() + " équipements.");
+            equipementRepo.saveAll(equipements);
+        };
     }
+
 
     @Bean
     public ItemProcessor<Equipement, Equipement> equipementProcessor() {
@@ -55,10 +61,11 @@ public class BatchConfigForJSON {
 
         var builder = new StepBuilder("stepJsonToDB", jobRepository);
         return builder
-                .<Equipement, Equipement>chunk(1, transactionManager)
+                .<Equipement, Equipement>chunk(2, transactionManager)
                 .reader(reader)
                 .processor(equipementProcessor())
                 .writer(writer)
+                .listener(equipementStepListener)
                 .build();
     }
 

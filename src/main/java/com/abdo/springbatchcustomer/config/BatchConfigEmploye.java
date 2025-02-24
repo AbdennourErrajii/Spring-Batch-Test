@@ -189,9 +189,11 @@ public class BatchConfigEmploye {
     /*------------------------ Step 5 Db To Pdf  -----------------------  */
 
 
+    @Bean
     public EmployeDbToPdfProcessor employeDbToPdfProcessor() {
         return new EmployeDbToPdfProcessor();
     }
+    @Bean
     public EmployeDbToPdfWriter employeDbToPdfWriter() {
         return new EmployeDbToPdfWriter();
     }
@@ -207,12 +209,15 @@ public class BatchConfigEmploye {
 
     /* ----------------------  Step 6 Json To XML ----------------------------  */
 
+    @Bean
     public EmployeJsonToXmlReader employeJsonToXmlReader() throws Exception {
         return new EmployeJsonToXmlReader();
     }
+    @Bean
     public EmployeJsonToXmlProcessor employeJsonToXmlProcessor() {
         return new EmployeJsonToXmlProcessor();
     }
+    @Bean
     public EmployeJsonToXmlWriter employeJsonToXmlWriter() {
         return new EmployeJsonToXmlWriter();
     }

@@ -31,7 +31,6 @@ public class CsvPartitioner implements Partitioner {
                 }
                 startLine++;
             }
-            System.out.println("************************"+partitionMap);
         } catch (IOException e) {
             throw new RuntimeException("Erreur lors de la lecture du fichier CSV", e);
         }
